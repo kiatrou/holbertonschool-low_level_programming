@@ -33,4 +33,8 @@ void print_triangle(int size)
 			height++;
 		}
 	}
+	else
+	{
+		_putchar('\n');
+	}
 }
