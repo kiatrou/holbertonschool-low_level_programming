@@ -12,19 +12,23 @@ int main(void)
 	{
 		if ((hundred % 3) == 0 && (hundred % 5) == 0)
 		{
-			printf("FizzBuzz ");
+			printf("FizzBuzz");
 		}
 		else if ((hundred % 3) == 0)
 		{
-			printf("Fizz ");
+			printf("Fizz");
 		}
 		else if ((hundred % 5) == 0)
 		{
-			printf("Buzz ");
+			printf("Buzz");
 		}
 		else
 		{
-			printf("%d ", hundred);
+			printf("%d", hundred);
+		}
+		if (hundred < 100)
+		{
+			printf(" ");
 		}
 		hundred++;
 	}
