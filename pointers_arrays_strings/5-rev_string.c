@@ -30,5 +30,4 @@ void rev_string(char *s)
 		end--;
 		/*Starts counting from the end of the string and moves towards the start*/
 	}
-	_putchar('\n');
 }
