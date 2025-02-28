@@ -41,7 +41,7 @@ int _atoi(char *s)
 		{
 			non_digit = 2;
 			/*if non number found, this stops*/
-		
+
 			if (non_digit == 2)
 			{
 				return (final_result * sign);
