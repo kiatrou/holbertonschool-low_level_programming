@@ -16,6 +16,8 @@
 */
 char *_strncat(char *dest, char *src, int n)
 {
+	char *original_dest = dest;
+
 	/*Moves dest pointer to end of string*/
 	while (*dest)
 	{
@@ -33,5 +35,5 @@ char *_strncat(char *dest, char *src, int n)
 	/*Null-terminate resulting string*/
 	*dest = '\0';
 
-	return (dest);
+	return (original_dest);
 }
