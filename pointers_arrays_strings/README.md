@@ -1,1 +1,1 @@
-Project on pointers, arrays and strings
+second folder for pointers, arrays and strings
