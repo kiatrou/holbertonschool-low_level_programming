@@ -8,6 +8,8 @@
 */
 char *string_toupper(char *s)
 {
+	char *original_s = s;
+
 	/*Iterate through each character of string*/
 	while (*s != '\0')
 	{
@@ -19,5 +21,5 @@ char *string_toupper(char *s)
 		}
 		s++;
 	}
-	return (s);
+	return (original_s);
 }
