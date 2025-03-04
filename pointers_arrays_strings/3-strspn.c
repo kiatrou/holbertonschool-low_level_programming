@@ -28,9 +28,9 @@ unsigned int _strspn(char *s, char *accept)
 		/*Loop through accept*/
 		count_accept = 0;
 		/*reset counter before checking accept*/
-	
+
 		while (accept[count_accept] != '\0')
-		{	
+		{
 			if (s[count_s] == accept[count_accept])
 			{
 				number_of_bytes++;

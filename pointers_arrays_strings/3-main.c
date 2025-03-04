@@ -6,7 +6,7 @@
  * of characters and returns the length of
  * the string
  *
- * Return (0);
+ * Return: Always 0 (Success);
 */
 int main(void)
 {
