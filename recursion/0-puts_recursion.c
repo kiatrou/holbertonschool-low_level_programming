@@ -5,12 +5,16 @@
  * @str: the string being printed
  *
 */
-void _puts_recursion(char *str)
+void _puts_recursion(char *s)
 {
-	while (*str != '\0')
+	if (*s != '\0')
 	{
-		_putchar(*str);
-		str++;
+		_putchar(*s);
+		s++;
+		_puts_recursion(s);
 	}
-	_putchar('\n');
+	if (*s == '\0')
+	{
+		_putchar('\n');
+	}
 }
