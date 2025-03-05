@@ -5,7 +5,7 @@
  * @str: the string being printed
  *
 */
-void _puts(char *str)
+void _puts_recursion(char *str)
 {
 	while (*str != '\0')
 	{
