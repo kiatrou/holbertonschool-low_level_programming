@@ -1,8 +1,5 @@
 #include "main.h"
 /**
- * _sqrt_recursion - initiates the process of
- * finding the natural square root of a given
- * number.
  * sqrt_helper - this function keeps track
  * of the current base for the sqaure root
  * of n. It controls how the trial and error
@@ -11,12 +8,8 @@
  * @n: number we are finding the square root of
  * @base: current number being tested to see if
  * its square equals the given number n.
- * @n: given number
  *
- * Return: (recur)if equal to n, return square root
- * if greater than n, return -1 because it is
- * not a natural square root
- * Returns: (helper)Recurses next guess
+ * Return: (helper)Recurses next guess
 */
 int sqrt_helper(int n, int base)
 {
@@ -35,7 +28,16 @@ int sqrt_helper(int n, int base)
 	/*Recursive, tries the next num*/
 	return (sqrt_helper(n, base + 1));
 }
-
+/**
+ * _sqrt_recursion - initiates the process of
+ * finding the natural square root of a given
+ * number.
+ * @n: given number
+ *
+ * Return: if eqaul to n, return square root
+ * if greater than n, return -1 because it is
+ * not a natural square root
+*/
 int _sqrt_recursion(int n)
 {
 	return (sqrt_helper(n, 1));
