@@ -1,6 +1,11 @@
 #include <stdio.h>
 /**
  * main - entry point
+ * @argc: unused - usually an integer numebr that stores
+ * the number of command-line arguments passed by the user
+ * including the program name
+ * @argv: an array of character pointers listing all
+ * arguments - in this case, the name of the program
  *
  * Return: Always 0 (Success)
 */
