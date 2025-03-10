@@ -33,7 +33,7 @@ char *create_array(unsigned int size, char c)
 	unsigned int count;
 
 	/*if size is 0*/
-	if (size == 0 && array == 0)
+	if (size == 0 || array == 0)
 	{
 		return (NULL);
 	}
