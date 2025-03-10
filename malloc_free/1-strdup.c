@@ -29,6 +29,11 @@ char *_strdup(char *str)
 
 	duplicate = malloc(str_length + 1);
 
+	if (duplicate == NULL)
+	{
+		return (NULL);
+	}
+
 	/*Copies string*/
 	while (count < str_length)
 	{
@@ -36,11 +41,6 @@ char *_strdup(char *str)
 		count++;
 	}
 
-	if (duplicate == NULL)
-	{
-		return (NULL);
-	}
-	
 	/*Null-terminate new string*/
 	duplicate[count] = '\0';
 
