@@ -37,7 +37,7 @@ int **alloc_grid(int width, int height)
 			/*if fail, free prev alloc mem return NULL*/
 			for (columns = 0; columns < rows; columns++)
 			{
-				free(grid[rows]);
+				free(grid[columns]);
 			}
 			free(grid);
 			return (NULL);
