@@ -25,15 +25,8 @@ void print_dog(struct dog *d)
 		printf("Name: %s\n", d->name);
 	}
 
-	/*Print age, if 0.0 (because float) print (nil)*/
-	if (d->age == 0.0)
-	{
-		printf("Age: (nil)\n");
-	}
-	else
-	{
-		printf("Age: %.6f\n", d->age);
-	}
+	/*Print age*/
+	printf("Age: %.6f\n", d->age);
 
 	/*Print owner, if NULL print (nil)*/
 	if (d->owner == NULL)
