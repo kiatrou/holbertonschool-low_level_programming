@@ -12,7 +12,12 @@
 */
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
-	/*Defined struct outside of function*/
+	/*Check to prevent seg faults*/
+	if (d == NULL)
+	{
+		return;
+		/*this will exit functionif pointer is NULL*/
+	}
 
 	/*Using -> dereferences the pointer and accesses the struct*/
 	d->name = name;
