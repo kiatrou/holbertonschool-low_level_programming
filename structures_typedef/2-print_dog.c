@@ -32,7 +32,7 @@ void print_dog(struct dog *d)
 	}
 	else
 	{
-		printf("Age: %.1f\n", d->age);
+		printf("Age: %.6f\n", d->age);
 	}
 
 	/*Print owner, if NULL print (nil)*/
