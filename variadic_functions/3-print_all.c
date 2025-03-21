@@ -51,10 +51,18 @@ void print_all(const char * const format, ...)
 		/* Print the actual value */
 		switch (format[count])
 		{
-			case 'c': printf("%c", c); break;
-			case 'i': printf("%d", i); break;
-			case 'f': printf("%f", f); break;
-			case 's': printf("%s", s); break;
+			case 'c':
+			printf("%c", c);
+			break;
+			case 'i':
+			printf("%d", i);
+			break;
+			case 'f':
+			printf("%f", f);
+			break;
+			case 's':
+			printf("%s", s);
+			break;
 		}
 		count++;
 	}
