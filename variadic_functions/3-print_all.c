@@ -17,39 +17,44 @@ void print_all(const char * const format, ...)
 	int i;
 	float f;
 	char *s;
-	char *separator = ", ";
+	int first = 1; /* Flag to track first printed value */
 
 	va_start(args, format);
-	while (format[count] != '\0')
+	while (format && format[count] != '\0')
 	{
 		switch (format[count])
 		{
 			case 'c':
 			c = va_arg(args, int);
-			printf("%c", c);
 			break;
-
 			case 'i':
 			i = va_arg(args, int);
-			printf("%d", i);
 			break;
-
 			case 'f':
 			f = va_arg(args, double);
-			printf("%f", f);
 			break;
-
 			case 's':
 			s = va_arg(args, char *);
-			printf("%s", s ? s : "(nil)");
+			s = s ? s : "(nil)";
 			break;
 			default:
-			break;
+			count++;
+			continue; /* Skip invalid format characters */
 		}
-		if (format[count + 1] == 'c' || format[count + 1] == 'i' ||
-		format[count + 1] == 'f' || format[count + 1] == 's')
+		if (!first)
 		{
-			printf("%s", separator);
+			printf(", "); /* Print separator before the next value */
+		}
+
+		first = 0; /* Mark first value as printed */
+
+		/* Print the actual value */
+		switch (format[count])
+		{
+			case 'c': printf("%c", c); break;
+			case 'i': printf("%d", i); break;
+			case 'f': printf("%f", f); break;
+			case 's': printf("%s", s); break;
 		}
 		count++;
 	}
