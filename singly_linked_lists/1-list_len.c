@@ -1,7 +1,7 @@
 #include "lists.h"
 #include <stdio.h>
 /**
- * print_len - returns a number of elements in a
+ * list_len - returns a number of elements in a
  * linked list
  * @h: pointer to header of linked list
  *
