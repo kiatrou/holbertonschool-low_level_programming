@@ -15,6 +15,7 @@ int main(int argc, char *argv[])
 {
     int file_from, file_to, bytes_read, bytes_written;
     char buffer[BUFFER_SIZE];
+    struct stat file_stat;
 
     /* Check if the number of arguments is correct */
     if (argc != 3)
@@ -37,7 +38,7 @@ int main(int argc, char *argv[])
     {
         dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
         close(file_from);
-        exit(98);
+        exit(99);
     }
 
     /* Copy the content from file_from to file_to */
@@ -60,6 +61,30 @@ int main(int argc, char *argv[])
         close(file_from);
         close(file_to);
         exit(98);
+    }
+
+    /* Get the current permissions of file_to if it exists */
+    if (stat(argv[2], &file_stat) == 0)
+    {
+        /* If the file already exists, do not change the permissions */
+        if (fchmod(file_to, file_stat.st_mode) == -1)
+        {
+            dprintf(STDERR_FILENO, "Error: Can't set permissions on %s\n", argv[2]);
+            close(file_from);
+            close(file_to);
+            exit(100);
+        }
+    }
+    else
+    {
+        /* If the file does not exist, set the correct permissions to rw-rw-r-- (644) */
+        if (fchmod(file_to, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH) == -1)
+        {
+            dprintf(STDERR_FILENO, "Error: Can't set permissions on %s\n", argv[2]);
+            close(file_from);
+            close(file_to);
+            exit(100);
+        }
     }
 
     /* Close the file descriptors */
