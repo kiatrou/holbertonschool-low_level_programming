@@ -15,7 +15,6 @@ int main(int argc, char *argv[])
 {
     int file_from, file_to, bytes_read, bytes_written;
     char buffer[BUFFER_SIZE];
-    struct stat file_stat;
 
     /* Check if the number of arguments is correct */
     if (argc != 3)
@@ -38,7 +37,7 @@ int main(int argc, char *argv[])
     {
         dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
         close(file_from);
-        exit(98);  // Change exit code to 98 for write permission failure
+        exit(98);
     }
 
     /* Copy the content from file_from to file_to */
@@ -50,7 +49,7 @@ int main(int argc, char *argv[])
             dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
             close(file_from);
             close(file_to);
-            exit(98);  // Exit with 98 for write failure
+            exit(98);
         }
     }
 
