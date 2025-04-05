@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <sys/stat.h>
 
 #define BUFFER_SIZE 1024
 /**
@@ -55,6 +56,14 @@ int main(int argc, char *argv[])
 		close(file_from);
 		close(file_to);
 		exit(98);
+	}
+	/* Set the correct permissions to rw-rw-r-- (644) for file_to */
+	if (fchmod(file_to, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't set permissions on %s\n", argv[2]);
+		close(file_from);
+		close(file_to);
+		exit(100);
 	}
 	/*Close the file descriptors*/
 	if (close(file_from) == -1)
